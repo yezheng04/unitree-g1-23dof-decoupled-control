@@ -49,4 +49,4 @@ Videos use recorded PhysX poses, with MuJoCo used only for graphics. No `mj_step
 - Arms54s: forward, left turn, deep squat.
 - [Raw aggregate metrics](../results/duet_22000/evaluation.json), [render verification](../results/duet_22000/RENDER_PASS.json), [artifacts](ARTIFACTS.md).
 
-No hardware experiments, deployable controller, successful sim2sim transfer or complete teleoperation pipeline are claimed.
+The PhysX evaluation above is separate from the preliminary MuJoCo deployment checks in [DEPLOY.md](DEPLOY.md). A standalone experimental HG DDS controller is now included; no hardware experiments or complete teleoperation pipeline have been validated.

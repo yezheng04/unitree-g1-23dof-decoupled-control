@@ -72,12 +72,34 @@ scripts/
   rsl_rl/                        # Train and play entry points
   evaluation/                    # Fixed-command evaluation and offline replay
   validation/                    # Source checks and GPU integration validation
+deploy/                          # Standalone policy export, MuJoCo and experimental HG DDS control
 docs/                            # Recipe, design, reproducibility and limitations
 results/                         # Small, sanitized evaluation and completion evidence
 licenses/                        # Retained third-party license texts
 ```
 
-No hardware controller, ROS/DDS teleoperation bridge or deployment-ready policy is claimed here. The external arm-target hook is present, but end-to-end teleoperation and real-robot validation remain future work.
+## Deploy
+
+Standalone deployment tools support **MuJoCo sim2sim** and an **experimental G1 EDU 23DoF HG DDS controller**. Export the checkpoint with its observation normalization before deployment. Use Python 3.11; see [environment setup and full deployment guide](docs/DEPLOY.md).
+
+```bash
+python -m pip install -r requirements-deploy.txt
+python -m deploy.export_policy --checkpoint artifacts/checkpoints/model_22000.pt
+# Actual MuJoCo physics; omit --headless to open the viewer.
+python -m deploy.sim2sim --headless --vx 0.5 --duration 18
+# Hardware controller's default mode: offline inference, no DDS connection.
+python -m deploy.sim2real
+```
+
+For hardware, install `deploy/requirements-hardware.txt`, confirm the network interface and IMU frame, and begin with a read-only check:
+
+```bash
+python -m deploy.sim2real --read-only --interface YOUR_ROBOT_NIC --imu-frame pelvis --duration 10
+# After the setup and operator checks in docs/DEPLOY.md:
+python -m deploy.sim2real --execute --interface YOUR_ROBOT_NIC --imu-frame pelvis
+```
+
+Hold L1 and press Start to move to the default pose; keep L1 held and press A to start the policy. B/Select or releasing L1 requests a latched damping stop. Motion-service takeover requires an explicit `--release-mode`. Nine initial 18-second MuJoCo cases completed without a fall; [results](results/deployment_22000.json) include remaining tracking errors. Hardware control has only offline validation; real-robot validation and external arm/teleoperation integration remain pending.
 
 ## Acknowledgments
 

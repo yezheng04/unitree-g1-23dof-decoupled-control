@@ -1,0 +1,4 @@
+# Standalone Python 3.11 deployment environment; Isaac Sim is not required.
+torch==2.7.0
+numpy>=1.26,<3
+mujoco==3.3.6

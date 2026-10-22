@@ -32,6 +32,29 @@ python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 
 
 [训练配方与22项奖励](docs/TRAINING_RECIPE.md) · [代码知识图谱与迁移差异](docs/ARCHITECTURE.md) · [完整评估](docs/RESULTS.md) · [视频和模型附件](docs/ARTIFACTS.md)
 
+## Deploy / 部署
+
+已提供 **MuJoCo sim2sim** 和 **G1 EDU 23 自由度真机 HG DDS 控制**入口。部署前将 checkpoint 导出为包含观测归一化的 TorchScript 策略；环境安装、参数和操作步骤见[部署说明](docs/DEPLOY.md)。
+
+```bash
+python -m pip install -r requirements-deploy.txt
+python -m deploy.export_policy --checkpoint artifacts/checkpoints/model_22000.pt
+# MuJoCo 物理闭环；删除 --headless 可打开可视化窗口
+python -m deploy.sim2sim --headless --vx 0.5 --duration 18
+# 默认只进行离线推理，不连接机器人
+python -m deploy.sim2real
+```
+
+安装 `deploy/requirements-hardware.txt` 中的真机 SDK 后，先确认网口与 IMU 坐标系：
+
+```bash
+python -m deploy.sim2real --read-only --interface YOUR_ROBOT_NIC --imu-frame pelvis --duration 10
+# 按部署说明完成现场检查后，再显式启用控制
+python -m deploy.sim2real --execute --interface YOUR_ROBOT_NIC --imu-frame pelvis
+```
+
+`YOUR_ROBOT_NIC` 替换为实际网口。按住 L1 + Start 进入默认姿态，再按 A 启动策略；松开 L1 或按 B/Select 请求阻尼停止。当前已完成 MuJoCo 初步验证和控制器离线测试，真机运行尚待现场验证。
+
 ## 致谢
 
 感谢 [DUET](https://github.com/bae-air-lab/DUET) 和 [HOMIE](https://github.com/InternRobotics/OpenHomie) 项目的开源工作。

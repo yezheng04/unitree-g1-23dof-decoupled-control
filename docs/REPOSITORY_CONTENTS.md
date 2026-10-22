@@ -7,6 +7,7 @@
 | scripts/evaluation/ |19-case policy evaluation with trajectory capture, generic checkpoint-labeled offline replay |
 | scripts/validation/ | CPU source/link/schema checks and upstream-equation/GPU integration validator |
 | scripts/setup/ | Pinned29-file robot asset downloader and hash verifier |
+| deploy/ | Standalone TorchScript export, MuJoCo physics, experimental HG DDS controller and CPU fault-injection tests |
 | docs/ | Installation, training recipe, architecture graph, results and artifact guide |
 | docs/media/ | Measured-policy preview GIF and representative frames |
 | results/ | Sanitized22000 evaluation, render checks, completed25001-run marker and training provenance |

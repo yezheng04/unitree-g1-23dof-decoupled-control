@@ -54,6 +54,10 @@ python scripts/evaluation/render_duet_replay.py --input outputs/eval_22000
 
 Evaluation defaults: seed42, 19 cases × 16 samples, 18 seconds each. Video labels are derived from the selected checkpoint. `--smoke` on the renderer only produces a short preview, not a full video suite.
 
+## Deployment
+
+For checkpoint export, MuJoCo sim2sim and the experimental G1 EDU 23DoF hardware controller, see [Deploy](DEPLOY.md). The standalone deployment environment uses `requirements-deploy.txt` and does not require Isaac Sim.
+
 ## Upstream equation / resume validation
 
 For this optional check, clone the upstream training project listed in [Acknowledgments](../README.md#acknowledgments) at the revision recorded in [source provenance](../THIRD_PARTY_NOTICES.md), then run:

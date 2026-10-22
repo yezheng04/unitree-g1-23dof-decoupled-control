@@ -1,0 +1,3 @@
+# Install after requirements-deploy.txt; DDS library prerequisites are documented
+# by the SDK. This revision is the one used to review the HG message API.
+unitree_sdk2py @ git+https://github.com/unitreerobotics/unitree_sdk2_python.git@814556d15970dd2ecf1c9984e845ca02ab07e206

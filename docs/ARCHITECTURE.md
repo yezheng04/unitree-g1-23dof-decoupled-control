@@ -49,7 +49,7 @@ flowchart TD
 - 足部site采用ankle_roll link上的固定偏移(0.04,0,−0.037)，线速度含ω×r；PhysX接触以过滤后的合力>1e−3N近似MuJoCo found。自碰撞为每link过滤合力统计，无法严格复制接触槽。
 - 全身CoM由PhysX各刚体实际COM和随机化后的质量加权得到，包含手臂/payload，不用pelvis位置冒充。
 - 使用源配置中的手部刚体名`*_wrist_roll_rubber_hand`；已按实际导入本体验证名称。
-- 当前只实现Flat；Rough、VLA桥、DDS控制器、ONNX/真机部署合同验收没有迁移。本版checkpoint必须在本版runner恢复。
+- 训练任务只实现Flat；Rough和VLA桥未迁移。新增的`deploy/`提供独立TorchScript导出、MuJoCo闭环和实验性HG DDS控制器，详见[部署说明](DEPLOY.md)；真机尚未验收。本版checkpoint恢复训练仍使用本版runner。
 - 保存/恢复全局课程步数和更新数，但不恢复每个环境的精确物理瞬时状态；恢复后重新初始化episode。
 
 

@@ -11,3 +11,15 @@ jobs:
       - run: python scripts/validation/check_release.py
       - run: python -m pip install build
       - run: python -m build --wheel
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-deploy.txt
+      - run: python -m pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m pip install -r requirements-deploy.txt
+      - run: python -m unittest discover -s deploy/tests -v

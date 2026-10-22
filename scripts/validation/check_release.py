@@ -7,7 +7,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[2]
 errors = []
 count = 0
-for base in (root / "source", root / "scripts"):
+for base in (root / "source", root / "scripts", root / "deploy"):
     for path in base.rglob("*.py"):
         count += 1
         text = path.read_text()

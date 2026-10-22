@@ -1,0 +1,279 @@
+{
+  "checkpoint": "model_22000.pt",
+  "hardware_validated": false,
+  "protocol": "Single deterministic 18 s MuJoCo rollout per condition; stand for 3 s, measure after 6 s. No domain randomization.",
+  "simulation": "Rev1.0 MJCF with training armature, PD, URDF effort limits and contact exclusions; 0.002 s physics, 0.02 s control.",
+  "export_parity": {
+    "rsl_rl_version": "3.1.2",
+    "observations": 900,
+    "max_abs_error": 0.0
+  },
+  "tests": {
+    "stand": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "height_command": 0.78,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": false,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        -0.00012731378796857507,
+        2.1700590553810174e-07,
+        -1.0914521374674576e-05
+      ],
+      "mean_root_height": 0.7561893768201737,
+      "max_tilt_rad": 0.15267131904329195,
+      "hardware_validated": false
+    },
+    "forward05": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "height_command": 0.78,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": false,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        0.5512907777320492,
+        0.0012410577919281236,
+        -0.0010881676224475598
+      ],
+      "mean_root_height": 0.7665974618793558,
+      "max_tilt_rad": 0.15267131904329195,
+      "hardware_validated": false
+    },
+    "arms_forward05": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.5,
+        0.0,
+        0.0
+      ],
+      "height_command": 0.78,
+      "arm_motion": true,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": false,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        0.5491669975739872,
+        0.0027266978791494335,
+        -0.005209586061009047
+      ],
+      "mean_root_height": 0.7664709938809237,
+      "max_tilt_rad": 0.15267131904329195,
+      "hardware_validated": false
+    },
+    "backward03": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        -0.3,
+        0.0,
+        0.0
+      ],
+      "height_command": 0.78,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": false,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        -0.11685224658289838,
+        0.0007924116232497532,
+        -0.00274950921134907
+      ],
+      "mean_root_height": 0.7618791216901047,
+      "max_tilt_rad": 0.15267131904329195,
+      "hardware_validated": false
+    },
+    "left02": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.0,
+        0.2,
+        0.0
+      ],
+      "height_command": 0.78,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": false,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        0.115792085792262,
+        0.14010888781190076,
+        0.015168602628274677
+      ],
+      "mean_root_height": 0.7631039737524838,
+      "max_tilt_rad": 0.15267131904329195,
+      "hardware_validated": false
+    },
+    "yaw_left03": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.0,
+        0.0,
+        0.3
+      ],
+      "height_command": 0.78,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": false,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        0.11712104838277942,
+        -0.04250892603609054,
+        0.1978484265094426
+      ],
+      "mean_root_height": 0.763758130582405,
+      "max_tilt_rad": 0.15267131904329195,
+      "hardware_validated": false
+    },
+    "squat38": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "height_command": 0.38,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": false,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        -1.855163191164024e-07,
+        -6.47616730822309e-07,
+        9.295002014067273e-07
+      ],
+      "mean_root_height": 0.3675009515586736,
+      "max_tilt_rad": 0.44644045379262465,
+      "hardware_validated": false
+    },
+    "hardware_limited_stand": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "height_command": 0.78,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": true,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        -0.00014176067605580034,
+        1.489372079787117e-07,
+        -9.985697351119494e-06
+      ],
+      "mean_root_height": 0.7561969910136859,
+      "max_tilt_rad": 0.15254160039600245,
+      "hardware_validated": false
+    },
+    "hardware_limited_forward03": {
+      "backend": "MuJoCo physics (mj_step)",
+      "mujoco_version": "3.3.6",
+      "policy_sha256": "478365f5e0086c9ed56faca9dd5bae66529d29f1738e2437e0f86afa50f6e26b",
+      "checkpoint_sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "duration_requested": 18.0,
+      "duration_completed": 18.000000000000902,
+      "survived": true,
+      "failure": null,
+      "command": [
+        0.3,
+        0.0,
+        0.0
+      ],
+      "height_command": 0.78,
+      "arm_motion": false,
+      "physics_dt": 0.002,
+      "control_dt": 0.02,
+      "hardware_position_limits": true,
+      "measurement_start": 6.0,
+      "mean_vx_vy_yaw": [
+        0.37322833396064964,
+        0.0033646096604637975,
+        -0.0033485359025189104
+      ],
+      "mean_root_height": 0.7656999042377438,
+      "max_tilt_rad": 0.15254160039600245,
+      "hardware_validated": false
+    }
+  },
+  "limitations": [
+    "No hardware or DDS network integration test.",
+    "Root world height differs from the PhysX foot-relative height metric.",
+    "Position/rate-limited cases do not simulate firmware, network delay or radio-link loss."
+  ]
+}
