@@ -1,6 +1,6 @@
 # Model and video artifacts
 
-The evaluated **checkpoint 22000** and all three full demonstration videos are published in the [GitHub Release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000). The training code is included in the repository and the release's Source code archives; start with [train_duet.py](../scripts/rsl_rl/train_duet.py) and the [training recipe](TRAINING_RECIPE.md).
+The evaluated **checkpoint 22000** and all three full demonstration videos are published in the [GitHub Release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000). The training code is included in the repository and the release's Source code archives; start with [train_duet.py](../scripts/rsl_rl/train_duet.py).
 
 ## Download script
 
@@ -61,6 +61,6 @@ python scripts/rsl_rl/play_duet.py --checkpoint artifacts/checkpoints/model_2200
 
 The model SHA256 is `715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93`. Its bytes match the evaluated checkpoint. The contract uses a portable URDF path; robot hashes and control/observation metadata are unchanged.
 
-Checkpoint filenames use zero-based iteration labels: model 22000 has 22001 completed PPO updates. This release contains only the evaluated 22000 model; the final 25000 checkpoint is not included. Evaluation protocol and limitations are documented in [RESULTS.md](RESULTS.md).
+Checkpoint filenames use zero-based iteration labels: model 22000 has 22001 completed PPO updates. This release contains only the evaluated 22000 model; the final 25000 checkpoint is not included.
 
 The preview GIF is tracked in Git. Checkpoints and full MP4s are distributed as Release attachments; training logs, replay arrays and USD caches are excluded.

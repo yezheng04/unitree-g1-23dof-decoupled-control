@@ -46,8 +46,6 @@ wandb login
 python scripts/rsl_rl/train_duet.py --headless
 ```
 
-训练参数和恢复训练命令见[训练配方](docs/TRAINING_RECIPE.md)。
-
 ## Deploy / 部署
 
 已提供 **MuJoCo sim2sim** 和 **G1 EDU 23 自由度真机 HG DDS 控制**入口。部署前将 checkpoint 导出为包含观测归一化的 TorchScript 策略；环境安装、参数和操作步骤见[部署说明](docs/DEPLOY.md)。

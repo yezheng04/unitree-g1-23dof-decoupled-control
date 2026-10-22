@@ -2,7 +2,7 @@
 
 An Isaac Lab / PhysX implementation of flat-ground locomotion and decoupled arm-disturbance training for the Unitree G1 23DoF robot.
 
-[中文说明](README.zh-CN.md) · [Installation](docs/INSTALL.md) · [Architecture](docs/ARCHITECTURE.md) · [Training recipe](docs/TRAINING_RECIPE.md) · [Evaluation](docs/RESULTS.md)
+[中文说明](README.zh-CN.md) · [Installation](docs/INSTALL.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ![Recorded IsaacLab policy replay at checkpoint 22000](docs/media/demo.gif)
 
@@ -55,8 +55,6 @@ python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 
 wandb login
 python scripts/rsl_rl/train_duet.py --headless
 ```
-
-See the [training recipe](docs/TRAINING_RECIPE.md) for parameters and resume commands.
 
 ## Measured results
 
