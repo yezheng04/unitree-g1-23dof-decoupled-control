@@ -1,6 +1,6 @@
 # Publication steps
 
-The repository is prepared locally; no remote was created and nothing was pushed.
+The [source repository](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control) is public. The evaluated model and full videos are distributed in the [checkpoint 22000 release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000). The steps below describe the publication workflow for future updates.
 
 1. Create your own GitHub repository, choosing visibility and name.
 2. Review README wording and upstream attribution. Add your preferred author/profile link if desired.

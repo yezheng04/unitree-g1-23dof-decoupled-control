@@ -4,6 +4,8 @@
 
 ![22000轮模型回放](docs/media/demo.gif)
 
+[下载 22000 轮模型与三段完整视频](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000) · [下载与解压说明](docs/ARTIFACTS.md)
+
 ## 工程内容
 
 - 仅注册一个行走与上肢扰动控制任务：13维腿/腰策略加10维外部手臂轨迹；机器人和接触适配保留在不注册任务的common模块。
@@ -15,6 +17,8 @@
 本仓库记录学习过程中的仿真适配、训练、评测和工程实现，具体实现与仿真差异见[架构说明](docs/ARCHITECTURE.md)。
 
 ## 使用入口
+
+训练代码已包含在仓库中：[训练入口](scripts/rsl_rl/train_duet.py)、[任务环境与 PPO 实现](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/duet_velocity/)、[机器人与仿真适配](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/common/)。
 
 先按[安装说明](docs/INSTALL.md)配置IsaacLab 2.3.2 / IsaacSim 5.1 / Python 3.11环境，然后：
 

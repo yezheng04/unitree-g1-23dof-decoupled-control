@@ -6,7 +6,7 @@ An Isaac Lab / PhysX implementation of flat-ground locomotion and decoupled arm-
 
 ![Recorded IsaacLab policy replay at checkpoint 22000](docs/media/demo.gif)
 
-The preview shows recorded **PhysX trajectories**, rendered offline without MuJoCo simulation steps. It uses checkpoint **22000**. Full videos and checkpoints are distributed separately; see [artifacts](docs/ARTIFACTS.md).
+The preview shows recorded **PhysX trajectories**, rendered offline without MuJoCo simulation steps. It uses checkpoint **22000**. The evaluated model and all three full videos are available in the [checkpoint 22000 release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000); see [download and extraction instructions](docs/ARTIFACTS.md).
 
 ## What this project demonstrates
 
@@ -27,6 +27,8 @@ This is a **learning and engineering portfolio** focused on simulation adaptatio
 Observations: **71 actor / 96 critic**, single-frame, no HIM encoder. Actor and critic use MLPs `[512, 256, 128]` with ELU and observation normalization.
 
 ## Reproduce
+
+Training code is included in this repository: [training entry point](scripts/rsl_rl/train_duet.py), [task and PPO implementation](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/duet_velocity/), and [robot and simulator support](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/common/).
 
 Use the tested **Python 3.11, Isaac Lab 2.3.2, Isaac Sim 5.1, RSL-RL 3.1.2** environment. Follow [installation](docs/INSTALL.md) before running:
 
