@@ -99,7 +99,7 @@ python -m deploy.sim2real --read-only --interface YOUR_ROBOT_NIC --imu-frame pel
 python -m deploy.sim2real --execute --interface YOUR_ROBOT_NIC --imu-frame pelvis
 ```
 
-Hold L1 and press Start to move to the default pose; keep L1 held and press A to start the policy. B/Select or releasing L1 requests a latched damping stop. Motion-service takeover requires an explicit `--release-mode`. Nine initial 18-second MuJoCo cases completed without a fall; [results](results/deployment_22000.json) include remaining tracking errors. Hardware control has only offline validation; real-robot validation and external arm/teleoperation integration remain pending.
+Hold L1 and press Start to move to the default pose; keep L1 held and press A to start the policy. B/Select or releasing L1 requests a latched damping stop. Motion-service takeover requires an explicit `--release-mode`.
 
 ## Acknowledgments
 

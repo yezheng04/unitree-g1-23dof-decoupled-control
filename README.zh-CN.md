@@ -53,7 +53,7 @@ python -m deploy.sim2real --read-only --interface YOUR_ROBOT_NIC --imu-frame pel
 python -m deploy.sim2real --execute --interface YOUR_ROBOT_NIC --imu-frame pelvis
 ```
 
-`YOUR_ROBOT_NIC` 替换为实际网口。按住 L1 + Start 进入默认姿态，再按 A 启动策略；松开 L1 或按 B/Select 请求阻尼停止。当前已完成 MuJoCo 初步验证和控制器离线测试，真机运行尚待现场验证。
+`YOUR_ROBOT_NIC` 替换为实际网口。按住 L1 并按 Start 进入默认姿态，继续按住 L1 并按 A 启动策略；松开 L1 或按 B/Select 请求锁存的阻尼停止。接管运动服务需要显式添加 `--release-mode`。
 
 ## 致谢
 
