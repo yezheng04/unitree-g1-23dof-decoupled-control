@@ -81,4 +81,4 @@ No hardware controller, ROS/DDS teleoperation bridge or deployment-ready policy 
 
 ## Acknowledgments
 
-Thanks to [DUET](https://github.com/bae-air-lab/DUET) for its open-source work. This learning project draws on and adapts its decoupled upper/lower-body training, arm trajectories, rewards, curricula and symmetry design for Isaac Lab. Thanks also to Unitree RL Lab, Unitree RL mjlab, Isaac Lab and Unitree ROS for their code, framework and robot assets. Upstream contributions, pinned revisions and licenses are recorded in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Thanks to [DUET](https://github.com/bae-air-lab/DUET) and [HOMIE](https://github.com/InternRobotics/OpenHomie) for their open-source work.

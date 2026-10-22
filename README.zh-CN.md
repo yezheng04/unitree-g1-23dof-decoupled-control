@@ -42,4 +42,4 @@ python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 
 
 ## 致谢
 
-感谢 [DUET](https://github.com/bae-air-lab/DUET) 项目的开源工作。本项目在学习过程中参考并适配了其上下肢解耦训练、手臂轨迹、奖励、课程与对称性设计，将其应用于 IsaacLab 仿真环境。同时感谢 Unitree RL Lab、Unitree RL mjlab、Isaac Lab 和 Unitree ROS 提供的代码、框架与机器人资源。各上游贡献、版本与许可证详见[来源与许可证](THIRD_PARTY_NOTICES.md)。
+感谢 [DUET](https://github.com/bae-air-lab/DUET) 和 [HOMIE](https://github.com/InternRobotics/OpenHomie) 项目的开源工作。
