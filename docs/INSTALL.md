@@ -57,13 +57,3 @@ Evaluation defaults: seed42, 19 cases × 16 samples, 18 seconds each. Video labe
 ## Deployment
 
 For checkpoint export, MuJoCo sim2sim and the experimental G1 EDU 23DoF hardware controller, see [Deploy](DEPLOY.md). The standalone deployment environment uses `requirements-deploy.txt` and does not require Isaac Sim.
-
-## Upstream equation / resume validation
-
-For this optional check, clone the upstream training project listed in [Acknowledgments](../README.md#acknowledgments) at the revision recorded in [source provenance](../THIRD_PARTY_NOTICES.md), then run:
-
-```bash
-python scripts/validation/check_duet_port.py --headless --checkpoint artifacts/checkpoints/model_22000.pt --upstream /absolute/path/to/upstream-repo --output outputs/validation
-```
-
-Read the PASS marker, not only the process exit code: Isaac Sim shutdown can obscure Python exceptions. CPU CI checks syntax, links, result schema and wheel construction; actual physics/inference checks require the tested GPU stack.
