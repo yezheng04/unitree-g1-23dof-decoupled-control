@@ -32,14 +32,6 @@ python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 
 
 [训练配方与22项奖励](docs/TRAINING_RECIPE.md) · [代码知识图谱与迁移差异](docs/ARCHITECTURE.md) · [完整评估](docs/RESULTS.md) · [视频和模型附件](docs/ARTIFACTS.md)
 
-## 当前证据和不足
-
-25001轮正式训练已完成。公开量化结果和视频来自22000轮checkpoint：304/304个18秒测试存活，前进0.5m/s实测0.533，上肢扰动时0.496；原地±0.3rad/s转向仅达到+0.209/−0.201并存在平移，纯横移带前进，后退不足；0.24m高度目标实测约0.27m。
-
-这不是最终模型评估，也不代表零滑步、全域随机化鲁棒性、sim2sim或真机验收通过。当前没有迁移VLA/DDS控制器或实现真实遥操作链路。
-
-原训练日志、W&B账号、服务器地址、虚拟环境、USD缓存和旧任务均不包含在源码仓库中。机器人模型通过锁定上游版本并校验哈希获取，模型与视频作为独立Release附件管理。
-
 ## 致谢
 
 感谢 [DUET](https://github.com/bae-air-lab/DUET) 和 [HOMIE](https://github.com/InternRobotics/OpenHomie) 项目的开源工作。
