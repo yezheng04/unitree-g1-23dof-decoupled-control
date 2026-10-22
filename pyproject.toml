@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=77", "wheel", "packaging>=24.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "g1-23dof-isaaclab-portfolio"
+version = "0.1.0"
+description = "G1 23DoF locomotion and arm-disturbance control in Isaac Lab"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = "Apache-2.0 AND BSD-3-Clause"
+license-files = ["LICENSE", "licenses/*.txt"]
+dependencies = ["psutil", "argcomplete", "prettytable", "PyYAML", "wandb==0.24.2"]
+
+[project.optional-dependencies]
+render = ["mujoco==3.5.0", "imageio[ffmpeg]", "Pillow"]
+
+[tool.setuptools.packages.find]
+where = ["source/unitree_rl_lab"]
+include = ["unitree_rl_lab*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"unitree_rl_lab.tasks.locomotion.robots.g1.duet_velocity" = ["*.json", "UPSTREAM_LICENSE"]

@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-20",
+  "source_static_check": true,
+  "robot_assets_verified": 29,
+  "duet_train_smoke": {
+    "environments": 64,
+    "updates": 2,
+    "marker": "results/portfolio_smoke.json"
+  },
+  "duet_integration": "results/portfolio_validation.json",
+  "render_smoke": {
+    "checkpoint": "model_22000.pt",
+    "mujoco_simulation_steps": 0,
+    "max_link_position_error_m": 5.5285018985804424e-06
+  },
+  "notes": [
+    "DUET-only source tree tested via PYTHONPATH; original training repository is unchanged.",
+    "Refactored robot/contact support is not a registered task.",
+    "The graphics-only replay smoke predates module extraction; renderer and paths were unchanged.",
+    "These are runtime checks, not new policy evaluations. GitHub CI has not run yet."
+  ],
+  "scope": "DUET only; common is not a task",
+  "duet_only_revalidation": "passed",
+  "registered_tasks": [
+    "Unitree-G1-23dof-Duet-Velocity"
+  ],
+  "checkpoint_restore_and_inference": {
+    "checkpoint": "artifacts/checkpoints/model_22000.pt",
+    "state": {
+      "version": 1,
+      "common_step_counter": 528024,
+      "completed_updates": 22001,
+      "obs_dims": [
+        71,
+        96
+      ],
+      "actions": 13
+    },
+    "restored_stage": true,
+    "inference_finite": true,
+    "symmetry": {
+      "policy": 0.0,
+      "critic": 0.0,
+      "actions": 0.0
+    }
+  },
+  "wheel": {
+    "name": "g1_23dof_isaaclab_portfolio-0.1.0-py3-none-any.whl",
+    "sha256": "0217877f11cf0ca466a40e7566af8f60bc59f6a209b288d6c41013163dbbeeb6",
+    "contains_independent_baseline": false
+  }
+}

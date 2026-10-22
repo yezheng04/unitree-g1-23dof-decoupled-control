@@ -1,0 +1,18 @@
+{
+  "upstream_commit": "439c21bd2817feedd519475e8301195b95cb6fcb",
+  "rsl_rl": "3.1.2",
+  "torch": "2.7.0+cu128",
+  "source_sha256": {
+    "actions.py": "f8e6521b519038ae1a56f6a448e5c818ae2befc7908e327597a61768a917f744",
+    "rsl_rl_ppo_cfg.py": "7706901a9edd5c28e128774b68f445a8b1d9c4039dd8b993c4cd4f3502bb1c68",
+    "commands.py": "bf00baa5550fb20ad8d9716b841737af888ee12ef785dd9268ca037df9678ff6",
+    "velocity_env_cfg.py": "c965e945d6e4885102dda09e11e359512bd19448ae063c2605c4eb481fe65294",
+    "curriculums.py": "afca2f9cfc1341bf56c126acca4788448bd0f5e0a6a23357875c7941e77fbfd8",
+    "runner.py": "e63471c324d0c50e49aa1290cad2d4fb65be327b006f4229c5d28a19be098102",
+    "adapters.py": "9f80b2f6780531bde3facfc52b074b2bada0f4b7746121a63276423de45998c3",
+    "symmetry.py": "b14ab519aba6599076b2765b0db43c6d28684857e78c88f28df9d3e76932e313",
+    "__init__.py": "cab3805fd9bb292f5e0663da2f26ebbc1b9b929656be322649f55c468884f31a",
+    "env.py": "3a456d015da6e9c00dcc9dc065a0f44ae8d41666b4e92079c8383b70a0a789c5",
+    "rewards.py": "18f133847b6537dda5d91425497d88eeffefa31c2a1500ef861f399ada0e33d6"
+  }
+}

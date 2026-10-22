@@ -1,0 +1,151 @@
+{
+  "mapping": {
+    "actor": 71,
+    "critic": 96,
+    "rl_actions": 13,
+    "external_arm": 10,
+    "joint_names": [
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_hip_yaw_joint",
+      "left_knee_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_hip_yaw_joint",
+      "right_knee_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint",
+      "waist_yaw_joint",
+      "left_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "left_shoulder_yaw_joint",
+      "left_elbow_joint",
+      "left_wrist_roll_joint",
+      "right_shoulder_pitch_joint",
+      "right_shoulder_roll_joint",
+      "right_shoulder_yaw_joint",
+      "right_elbow_joint",
+      "right_wrist_roll_joint"
+    ]
+  },
+  "curriculum": {
+    "0": {
+      "height_floor": 0.68,
+      "walk_floor": 0.71,
+      "arm_ratio": 0.15,
+      "arm_clean_fraction": 0.5,
+      "yaw_max": 0.4,
+      "entropy": 0.01
+    },
+    "1500": {
+      "height_floor": 0.68,
+      "walk_floor": 0.71,
+      "arm_ratio": 0.15,
+      "arm_clean_fraction": 0.4,
+      "yaw_max": 0.4,
+      "entropy": 0.01
+    },
+    "1750": {
+      "height_floor": 0.6666666666666667,
+      "walk_floor": 0.71,
+      "arm_ratio": 0.20833333333333331,
+      "arm_clean_fraction": 0.38333333333333336,
+      "yaw_max": 0.6000000000000001,
+      "entropy": 0.0085
+    },
+    "2000": {
+      "height_floor": 0.6533333333333333,
+      "walk_floor": 0.71,
+      "arm_ratio": 0.26666666666666666,
+      "arm_clean_fraction": 0.3666666666666667,
+      "yaw_max": 0.8,
+      "entropy": 0.007
+    },
+    "3000": {
+      "height_floor": 0.6,
+      "walk_floor": 0.71,
+      "arm_ratio": 0.5,
+      "arm_clean_fraction": 0.3,
+      "yaw_max": 0.8,
+      "entropy": 0.004
+    },
+    "3500": {
+      "height_floor": 0.5449999999999999,
+      "walk_floor": 0.68,
+      "arm_ratio": 0.5625,
+      "arm_clean_fraction": 0.275,
+      "yaw_max": 0.8,
+      "entropy": 0.004
+    },
+    "5000": {
+      "height_floor": 0.38,
+      "walk_floor": 0.68,
+      "arm_ratio": 0.75,
+      "arm_clean_fraction": 0.2,
+      "yaw_max": 0.9,
+      "entropy": 0.004
+    },
+    "6000": {
+      "height_floor": 0.24,
+      "walk_floor": 0.64,
+      "arm_ratio": 0.875,
+      "arm_clean_fraction": 0.15000000000000002,
+      "yaw_max": 1.0,
+      "entropy": 0.004
+    },
+    "7000": {
+      "height_floor": 0.24,
+      "walk_floor": 0.64,
+      "arm_ratio": 1.0,
+      "arm_clean_fraction": 0.1,
+      "yaw_max": 1.0,
+      "entropy": 0.004
+    }
+  },
+  "simulation": {
+    "steps": 180,
+    "all_rewards_finite": true,
+    "reward_terms": 22,
+    "max_arm_target_delta_rad": 2.0395164489746094,
+    "max_arm_target_accel_rad_s2": 38.890750885009766
+  },
+  "source_formula_max_errors": {
+    "track_linear_velocity": 0.0,
+    "track_angular_velocity": 0.0,
+    "track_base_height": 0.0,
+    "body_orientation_l2": 0.0,
+    "body_ang_vel": 0.0,
+    "feet_distance": 0.0,
+    "idle_base_motion": 0.0,
+    "com_support": 0.0,
+    "idle_feet_still": 0.0,
+    "foot_gait": 0.0,
+    "foot_clearance": 0.0,
+    "foot_slip": 0.0,
+    "feet_air_time": 0.0,
+    "action_smoothness_l2": 0.0
+  },
+  "resume": {
+    "checkpoint": "artifacts/checkpoints/model_22000.pt",
+    "state": {
+      "version": 1,
+      "common_step_counter": 528024,
+      "completed_updates": 22001,
+      "obs_dims": [
+        71,
+        96
+      ],
+      "actions": 13
+    },
+    "restored_stage": true,
+    "inference_finite": true,
+    "symmetry": {
+      "policy": 0.0,
+      "critic": 0.0,
+      "actions": 0.0
+    }
+  },
+  "passed": true
+}

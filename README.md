@@ -1,0 +1,82 @@
+# G1 23DoF Locomotion & Arm-Disturbance Control
+
+An Isaac Lab / PhysX implementation of flat-ground locomotion and decoupled arm-disturbance training for the Unitree G1 23DoF robot.
+
+[中文说明](README.zh-CN.md) · [Installation](docs/INSTALL.md) · [Architecture](docs/ARCHITECTURE.md) · [Training recipe](docs/TRAINING_RECIPE.md) · [Evaluation](docs/RESULTS.md)
+
+![Recorded IsaacLab policy replay at checkpoint 22000](docs/media/demo.gif)
+
+The preview shows recorded **PhysX trajectories**, rendered offline without MuJoCo simulation steps. It uses checkpoint **22000**. Full videos and checkpoints are distributed separately; see [artifacts](docs/ARTIFACTS.md).
+
+## What this project demonstrates
+
+- Adapting locomotion and arm-disturbance training to Isaac Lab's manager-based environments.
+- Explicit joint-order mapping for a 23DoF embodiment, including robot limits, PD gains, contact sensors and virtual foot reference points.
+- Decoupled control: a 13-action policy controls legs and waist yaw; an independent trajectory generator drives the 10 arm joints.
+- Staged velocity, squat-height, arm-motion and push curricula; symmetry augmentation and loss; resumable curriculum and entropy schedules.
+- A reproducible evaluation pipeline with fixed commands, first-fall masking, explicit failure counts and verified trajectory replay.
+
+This is a **learning and engineering portfolio** focused on simulation adaptation, training and evaluation for the G1 23DoF robot. Implementation details and physical differences are documented in [Architecture](docs/ARCHITECTURE.md).
+
+## Included task
+
+| Task ID | Policy action | Role |
+|---|---:|---|
+| `Unitree-G1-23dof-Duet-Velocity` | 13 | Legs + waist locomotion under 10-joint arm disturbances and height commands |
+
+Observations: **71 actor / 96 critic**, single-frame, no HIM encoder. Actor and critic use MLPs `[512, 256, 128]` with ELU and observation normalization.
+
+## Reproduce
+
+Use the tested **Python 3.11, Isaac Lab 2.3.2, Isaac Sim 5.1, RSL-RL 3.1.2** environment. Follow [installation](docs/INSTALL.md) before running:
+
+```bash
+python scripts/setup/fetch_robot_assets.py
+python -m pip install -e .
+# Two PPO updates to check your installation; not a trained policy.
+python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 --offline --run_name smoke
+# Full training recipe: 4096 environments, seed 1, 25001 updates, save every 500.
+wandb login
+python scripts/rsl_rl/train_duet.py --headless
+```
+
+The training recipe uses PhysX and RSL-RL 3. See [Training recipe](docs/TRAINING_RECIPE.md) for the configuration and [Architecture](docs/ARCHITECTURE.md) for simulator and implementation differences.
+
+## Measured results
+
+The full run completed **25001 PPO updates** on one RTX 5080. The published quantitative evaluation currently covers **checkpoint 22000**, not the final checkpoint.
+
+| Test | Command | Measured mean |
+|---|---:|---:|
+| Forward | 0.50 m/s | 0.533 m/s |
+| Forward with arm motion | 0.50 m/s | 0.496 m/s |
+| Backward | −0.30 m/s | −0.147 m/s |
+| Turn in place, left / right | ±0.30 rad/s | +0.209 / −0.201 rad/s |
+| Squat height | 0.38 m | 0.382 m |
+| Deep squat height | 0.24 m | 0.270 m |
+
+All **304 / 304** evaluated episodes survived the 18-second test. These tests retain friction and payload variation but disable pushes, observation noise, COM shifts and encoder bias. Turning includes approximately 0.92–0.96 m net translation over the 12-second measurement window; lateral commands induce forward drift. Survival alone is not tracking success. See [full protocol and limitations](docs/RESULTS.md).
+
+## Code map
+
+```text
+source/unitree_rl_lab/unitree_rl_lab/
+  paths.py                       # Portable assets and USD cache
+  tasks/locomotion/robots/g1/
+    common/                      # Robot, contacts and simulation support; no registered task
+    duet_velocity/               # 13+10 control, rewards, curricula and runner
+scripts/
+  setup/                         # Pinned robot-asset download with SHA256 checks
+  rsl_rl/                        # Train and play entry points
+  evaluation/                    # Fixed-command evaluation and offline replay
+  validation/                    # Source checks and GPU integration validation
+docs/                            # Recipe, design, reproducibility and limitations
+results/                         # Small, sanitized evaluation and completion evidence
+licenses/                        # Retained third-party license texts
+```
+
+No hardware controller, ROS/DDS teleoperation bridge or deployment-ready policy is claimed here. The external arm-target hook is present, but end-to-end teleoperation and real-robot validation remain future work.
+
+## Acknowledgments
+
+Thanks to [DUET](https://github.com/bae-air-lab/DUET) for its open-source work. This learning project draws on and adapts its decoupled upper/lower-body training, arm trajectories, rewards, curricula and symmetry design for Isaac Lab. Thanks also to Unitree RL Lab, Unitree RL mjlab, Isaac Lab and Unitree ROS for their code, framework and robot assets. Upstream contributions, pinned revisions and licenses are recorded in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -1,0 +1,7 @@
+# Install in the existing Isaac Lab 2.3.2 / Isaac Sim 5.1 Python 3.11 environment.
+# Do not install a different Torch build over Isaac Lab's CUDA 12.8 installation.
+rsl-rl-lib==3.1.2
+wandb==0.24.2
+argcomplete
+prettytable
+PyYAML

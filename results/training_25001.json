@@ -1,0 +1,15 @@
+{
+  "completed_updates": 25001,
+  "global_step": 600024,
+  "symmetry": {
+    "policy": 0.0,
+    "critic": 0.0,
+    "actions": 0.0
+  },
+  "dimensions": [
+    71,
+    96,
+    13
+  ],
+  "finite_weights": true
+}

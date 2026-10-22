@@ -1,0 +1,44 @@
+{
+  "offline_pose_rendering": true,
+  "physics": "IsaacLab PhysX",
+  "mujoco_simulation_steps": 0,
+  "max_link_position_error_m": 9.217273654788849e-06,
+  "max_quaternion_1_absdot": 2.3368107393562099e-07,
+  "visual_asset_sha256": "8ca62fcccdca91a431ca04f1a42f9c2fda241fdd5e13411168dc82de00f978de",
+  "fps": 25,
+  "smoke": false,
+  "videos": [
+    {
+      "video": "artifacts/videos/duet_22000_locomotion.mp4",
+      "cases": [
+        "forward05",
+        "left02",
+        "right02",
+        "yaw_left03",
+        "yaw_right03",
+        "curve_left",
+        "curve_right"
+      ],
+      "seconds_per_case": 18.0
+    },
+    {
+      "video": "artifacts/videos/duet_22000_height.mp4",
+      "cases": [
+        "squat60",
+        "squat38",
+        "squat24",
+        "walk_low60"
+      ],
+      "seconds_per_case": 18.0
+    },
+    {
+      "video": "artifacts/videos/duet_22000_arms.mp4",
+      "cases": [
+        "forward_arms",
+        "yaw_left_arms",
+        "squat24_arms"
+      ],
+      "seconds_per_case": 18.0
+    }
+  ]
+}

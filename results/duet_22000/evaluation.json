@@ -1,0 +1,1019 @@
+{
+  "task": "Unitree-G1-23dof-Duet-Velocity",
+  "checkpoint": "artifacts/checkpoints/model_22000.pt",
+  "sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+  "seconds": 18.0,
+  "per_case": 16,
+  "seed": 42,
+  "dt": 0.02,
+  "protocol": "Deterministic mean actions; 0-3s standing at .78m, step to test command at 3s; statistics from 6s to end, first-episode-only until first fall. Arms active from start in arms cases. Full arm ratio=1, no clean slice. Height targets are not smoothed.",
+  "randomization": "Retain training foot friction and reset hand/torso mass randomization. Disable observation noise, pushes, COM randomization and encoder bias. Initial xy/yaw zero. This is not full training-distribution robustness.",
+  "physics": "IsaacLab PhysX",
+  "rendering": "Recorded PhysX body/joint poses, offline MuJoCo graphics ONLY, no mj_step.",
+  "joint_names": [
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "waist_yaw_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "left_shoulder_pitch_joint",
+    "right_shoulder_pitch_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_knee_joint",
+    "right_knee_joint",
+    "left_shoulder_yaw_joint",
+    "right_shoulder_yaw_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_elbow_joint",
+    "right_elbow_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint",
+    "left_wrist_roll_joint",
+    "right_wrist_roll_joint"
+  ],
+  "body_names": [
+    "pelvis",
+    "left_hip_pitch_link",
+    "right_hip_pitch_link",
+    "torso_link",
+    "left_hip_roll_link",
+    "right_hip_roll_link",
+    "left_shoulder_pitch_link",
+    "right_shoulder_pitch_link",
+    "left_hip_yaw_link",
+    "right_hip_yaw_link",
+    "left_shoulder_roll_link",
+    "right_shoulder_roll_link",
+    "left_knee_link",
+    "right_knee_link",
+    "left_shoulder_yaw_link",
+    "right_shoulder_yaw_link",
+    "left_ankle_pitch_link",
+    "right_ankle_pitch_link",
+    "left_elbow_link",
+    "right_elbow_link",
+    "left_ankle_roll_link",
+    "right_ankle_roll_link",
+    "left_wrist_roll_rubber_hand",
+    "right_wrist_roll_rubber_hand"
+  ],
+  "results": {
+    "stand": {
+      "name": "stand",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 0,
+      "video_survived": true,
+      "mean_velocity": [
+        0.0010181533871218562,
+        -0.0002840135421138257,
+        0.0037175926845520735
+      ],
+      "mae": [
+        0.0010256746906871573,
+        0.0003148702866215695,
+        0.0038538818730328383
+      ],
+      "height_mean": 0.7757529616355896,
+      "height_mae": 0.00424698693677783,
+      "tilt_mean_deg": 9.344310760498047,
+      "xy_speed_rms": 0.0011398113565519452,
+      "contact_duty": [
+        1.0,
+        1.0
+      ],
+      "stance_foot_speed": 0.003371389349922538,
+      "foot_height_p95": [
+        -0.00200493261218071,
+        -0.0020061153918504715
+      ],
+      "arm_position_mae": 0.04413662478327751,
+      "survivor_xy_displacement_after6s": 0.00024317232600878924
+    },
+    "forward05": {
+      "name": "forward05",
+      "command": [
+        0.5,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 16,
+      "video_survived": true,
+      "mean_velocity": [
+        0.5332451462745667,
+        -0.0014115039957687259,
+        -0.007423863280564547
+      ],
+      "mae": [
+        0.04461333390864576,
+        0.07467493924879588,
+        0.05930198852626188
+      ],
+      "height_mean": 0.7798040509223938,
+      "height_mae": 0.0016286983154714108,
+      "tilt_mean_deg": 3.5525693893432617,
+      "xy_speed_rms": 0.542776346206665,
+      "contact_duty": [
+        0.6381031613976705,
+        0.6397670549084858
+      ],
+      "stance_foot_speed": 0.02592291869223118,
+      "foot_height_p95": [
+        0.044855572283267975,
+        0.04447390604764223
+      ],
+      "arm_position_mae": 0.03511964529752731,
+      "survivor_xy_displacement_after6s": 6.380626678466797
+    },
+    "backward03": {
+      "name": "backward03",
+      "command": [
+        -0.3,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 32,
+      "video_survived": true,
+      "mean_velocity": [
+        -0.1466967612504959,
+        0.0012256968766450882,
+        -0.001243245555087924
+      ],
+      "mae": [
+        0.15330311319371248,
+        0.08670795723556018,
+        0.07749473254315552
+      ],
+      "height_mean": 0.7787728905677795,
+      "height_mae": 0.0019407382933422923,
+      "tilt_mean_deg": 4.806267738342285,
+      "xy_speed_rms": 0.18051913380622864,
+      "contact_duty": [
+        0.6052412645590682,
+        0.6111688851913477
+      ],
+      "stance_foot_speed": 0.017946721985936165,
+      "foot_height_p95": [
+        0.018777784891426563,
+        0.018610620871186256
+      ],
+      "arm_position_mae": 0.03475254029035568,
+      "survivor_xy_displacement_after6s": 1.7841356992721558
+    },
+    "left02": {
+      "name": "left02",
+      "command": [
+        0,
+        0.2,
+        0
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 48,
+      "video_survived": true,
+      "mean_velocity": [
+        0.08873819559812546,
+        0.16121970117092133,
+        0.014406458474695683
+      ],
+      "mae": [
+        0.08873816781244187,
+        0.09302320175151853,
+        0.06092811563694162
+      ],
+      "height_mean": 0.7790796756744385,
+      "height_mae": 0.0018748873844742775,
+      "tilt_mean_deg": 5.119980812072754,
+      "xy_speed_rms": 0.2112797349691391,
+      "contact_duty": [
+        0.6037853577371048,
+        0.595985856905158
+      ],
+      "stance_foot_speed": 0.01564837619662285,
+      "foot_height_p95": [
+        0.016840201802551746,
+        0.016122067347168922
+      ],
+      "arm_position_mae": 0.03608572110533714,
+      "survivor_xy_displacement_after6s": 2.1961750984191895
+    },
+    "right02": {
+      "name": "right02",
+      "command": [
+        0,
+        -0.2,
+        0
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 64,
+      "video_survived": true,
+      "mean_velocity": [
+        0.10213734209537506,
+        -0.16714556515216827,
+        -0.01620451547205448
+      ],
+      "mae": [
+        0.10213727269053595,
+        0.09202056347850965,
+        0.05871835454800944
+      ],
+      "height_mean": 0.780641496181488,
+      "height_mae": 0.00158651452511549,
+      "tilt_mean_deg": 5.056948184967041,
+      "xy_speed_rms": 0.22203423082828522,
+      "contact_duty": [
+        0.5809068219633944,
+        0.6127287853577371
+      ],
+      "stance_foot_speed": 0.016897227615118027,
+      "foot_height_p95": [
+        0.01759173348546028,
+        0.017026711255311966
+      ],
+      "arm_position_mae": 0.03429308533668518,
+      "survivor_xy_displacement_after6s": 2.33889102935791
+    },
+    "yaw_left03": {
+      "name": "yaw_left03",
+      "command": [
+        0,
+        0,
+        0.3
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 80,
+      "video_survived": true,
+      "mean_velocity": [
+        0.09029489755630493,
+        -0.04667140543460846,
+        0.20874018967151642
+      ],
+      "mae": [
+        0.09029462186932663,
+        0.0903227223279525,
+        0.10417194565530435
+      ],
+      "height_mean": 0.7804749011993408,
+      "height_mae": 0.0012947444338351488,
+      "tilt_mean_deg": 4.491421222686768,
+      "xy_speed_rms": 0.14287614822387695,
+      "contact_duty": [
+        0.5744592346089851,
+        0.6173044925124792
+      ],
+      "stance_foot_speed": 0.013780505396425724,
+      "foot_height_p95": [
+        0.01766827702522278,
+        0.016554073430597782
+      ],
+      "arm_position_mae": 0.034047435969114304,
+      "survivor_xy_displacement_after6s": 0.9228380918502808
+    },
+    "yaw_right03": {
+      "name": "yaw_right03",
+      "command": [
+        0,
+        0,
+        -0.3
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 96,
+      "video_survived": true,
+      "mean_velocity": [
+        0.08861839026212692,
+        0.05273057892918587,
+        -0.2011222243309021
+      ],
+      "mae": [
+        0.0886183699252806,
+        0.09083599768906461,
+        0.10989106151332778
+      ],
+      "height_mean": 0.780210554599762,
+      "height_mae": 0.0013748316559940577,
+      "tilt_mean_deg": 4.526736259460449,
+      "xy_speed_rms": 0.14355766773223877,
+      "contact_duty": [
+        0.6264559068219634,
+        0.5742512479201332
+      ],
+      "stance_foot_speed": 0.014021779410541058,
+      "foot_height_p95": [
+        0.016482203267514706,
+        0.017735999077558517
+      ],
+      "arm_position_mae": 0.033618196845054626,
+      "survivor_xy_displacement_after6s": 0.963794469833374
+    },
+    "curve_left": {
+      "name": "curve_left",
+      "command": [
+        0.5,
+        0,
+        0.3
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 112,
+      "video_survived": true,
+      "mean_velocity": [
+        0.5377628207206726,
+        -0.001028283266350627,
+        0.19690443575382233
+      ],
+      "mae": [
+        0.04689913225699582,
+        0.07123890479665541,
+        0.1089642025333079
+      ],
+      "height_mean": 0.7803323864936829,
+      "height_mae": 0.001692862599156797,
+      "tilt_mean_deg": 3.24939227104187,
+      "xy_speed_rms": 0.5467158555984497,
+      "contact_duty": [
+        0.6360232945091514,
+        0.6327995008319468
+      ],
+      "stance_foot_speed": 0.02633410319685936,
+      "foot_height_p95": [
+        0.0422143442556262,
+        0.04897291027009487
+      ],
+      "arm_position_mae": 0.03526420518755913,
+      "survivor_xy_displacement_after6s": 4.979781150817871
+    },
+    "curve_right": {
+      "name": "curve_right",
+      "command": [
+        0.5,
+        0,
+        -0.3
+      ],
+      "height": 0.78,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 128,
+      "video_survived": true,
+      "mean_velocity": [
+        0.5379849672317505,
+        0.004935680888593197,
+        -0.2007618546485901
+      ],
+      "mae": [
+        0.047497075026275315,
+        0.0702355080700639,
+        0.10499052127813997
+      ],
+      "height_mean": 0.7802197933197021,
+      "height_mae": 0.0019158257637172937,
+      "tilt_mean_deg": 3.2672955989837646,
+      "xy_speed_rms": 0.546776294708252,
+      "contact_duty": [
+        0.629783693843594,
+        0.6341514143094842
+      ],
+      "stance_foot_speed": 0.02478211559355259,
+      "foot_height_p95": [
+        0.04966972302645445,
+        0.04198622424155474
+      ],
+      "arm_position_mae": 0.034940529614686966,
+      "survivor_xy_displacement_after6s": 4.878456115722656
+    },
+    "squat60": {
+      "name": "squat60",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.6,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 144,
+      "video_survived": true,
+      "mean_velocity": [
+        -0.004640776198357344,
+        -0.00022779869323130697,
+        0.00023758650058880448
+      ],
+      "mae": [
+        0.004640781040997446,
+        0.0003846087815763556,
+        0.0021062847471041294
+      ],
+      "height_mean": 0.6076266765594482,
+      "height_mae": 0.007626700215041637,
+      "tilt_mean_deg": 10.979862213134766,
+      "xy_speed_rms": 0.004692834801971912,
+      "contact_duty": [
+        1.0,
+        1.0
+      ],
+      "stance_foot_speed": 0.009464249014854431,
+      "foot_height_p95": [
+        -0.001999526284635067,
+        -0.001996804028749466
+      ],
+      "arm_position_mae": 0.04289356991648674,
+      "survivor_xy_displacement_after6s": 0.0008813643362373114
+    },
+    "squat38": {
+      "name": "squat38",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.38,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 160,
+      "video_survived": true,
+      "mean_velocity": [
+        -0.013080213218927383,
+        -0.0005079504335299134,
+        -0.013324575498700142
+      ],
+      "mae": [
+        0.01308020867708336,
+        0.0015881485815115444,
+        0.014397328972750898
+      ],
+      "height_mean": 0.3816375732421875,
+      "height_mae": 0.0035785268992185593,
+      "tilt_mean_deg": 24.51420783996582,
+      "xy_speed_rms": 0.013261325657367706,
+      "contact_duty": [
+        1.0,
+        1.0
+      ],
+      "stance_foot_speed": 0.007920555770397186,
+      "foot_height_p95": [
+        -0.0019978396594524384,
+        -0.0019935518503189087
+      ],
+      "arm_position_mae": 0.06206328421831131,
+      "survivor_xy_displacement_after6s": 0.0010344376787543297
+    },
+    "squat24": {
+      "name": "squat24",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.24,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 176,
+      "video_survived": true,
+      "mean_velocity": [
+        -0.016218507662415504,
+        -0.0016709889750927687,
+        -0.02067164145410061
+      ],
+      "mae": [
+        0.01621850749040751,
+        0.001874821996383669,
+        0.02383755992982795
+      ],
+      "height_mean": 0.27006620168685913,
+      "height_mae": 0.030066199600696564,
+      "tilt_mean_deg": 16.896820068359375,
+      "xy_speed_rms": 0.01644623465836048,
+      "contact_duty": [
+        1.0,
+        1.0
+      ],
+      "stance_foot_speed": 0.006265703123062849,
+      "foot_height_p95": [
+        -0.001993904821574688,
+        -0.001994088292121887
+      ],
+      "arm_position_mae": 0.05037429556250572,
+      "survivor_xy_displacement_after6s": 0.0005128678167238832
+    },
+    "walk_low60": {
+      "name": "walk_low60",
+      "command": [
+        0.5,
+        0,
+        0
+      ],
+      "height": 0.6,
+      "arms": false,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 192,
+      "video_survived": true,
+      "mean_velocity": [
+        0.42760032415390015,
+        -0.009841627441346645,
+        -0.006139190401881933
+      ],
+      "mae": [
+        0.07242552130583817,
+        0.07425913630072312,
+        0.06565634292947954
+      ],
+      "height_mean": 0.6060805320739746,
+      "height_mae": 0.006412351969629526,
+      "tilt_mean_deg": 7.8390936851501465,
+      "xy_speed_rms": 0.4373513162136078,
+      "contact_duty": [
+        0.6187603993344426,
+        0.6505823627287853
+      ],
+      "stance_foot_speed": 0.05420979857444763,
+      "foot_height_p95": [
+        0.07035275548696518,
+        0.06757399253547192
+      ],
+      "arm_position_mae": 0.037751808762550354,
+      "survivor_xy_displacement_after6s": 5.198549270629883
+    },
+    "stand_arms": {
+      "name": "stand_arms",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": true,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 208,
+      "video_survived": true,
+      "mean_velocity": [
+        0.002016429090872407,
+        -0.0005352557636797428,
+        0.0027881800197064877
+      ],
+      "mae": [
+        0.01684651890428777,
+        0.011246510375592381,
+        0.018453375733256512
+      ],
+      "height_mean": 0.7769742012023926,
+      "height_mae": 0.0031007209327071905,
+      "tilt_mean_deg": 7.85083532333374,
+      "xy_speed_rms": 0.030204491689801216,
+      "contact_duty": [
+        1.0,
+        1.0
+      ],
+      "stance_foot_speed": 0.002697579562664032,
+      "foot_height_p95": [
+        -0.0019991472363471985,
+        -0.001999638043344021
+      ],
+      "arm_position_mae": 0.140821635723114,
+      "survivor_xy_displacement_after6s": 0.020016415044665337
+    },
+    "forward_arms": {
+      "name": "forward_arms",
+      "command": [
+        0.5,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": true,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 224,
+      "video_survived": true,
+      "mean_velocity": [
+        0.4959644079208374,
+        -0.0018318155780434608,
+        0.003676459426060319
+      ],
+      "mae": [
+        0.044835633082244045,
+        0.0816744244075804,
+        0.08618507637599883
+      ],
+      "height_mean": 0.7819808721542358,
+      "height_mae": 0.0026762504130601883,
+      "tilt_mean_deg": 2.7615644931793213,
+      "xy_speed_rms": 0.508143961429596,
+      "contact_duty": [
+        0.6364392678868552,
+        0.6349833610648918
+      ],
+      "stance_foot_speed": 0.027296269312500954,
+      "foot_height_p95": [
+        0.03828358091413975,
+        0.03804558143019676
+      ],
+      "arm_position_mae": 0.13627652823925018,
+      "survivor_xy_displacement_after6s": 5.908743858337402
+    },
+    "yaw_left_arms": {
+      "name": "yaw_left_arms",
+      "command": [
+        0,
+        0,
+        0.3
+      ],
+      "height": 0.78,
+      "arms": true,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 240,
+      "video_survived": true,
+      "mean_velocity": [
+        0.05839982256293297,
+        -0.021923046559095383,
+        0.19050058722496033
+      ],
+      "mae": [
+        0.06548703148088594,
+        0.08394399984551733,
+        0.12415692264077975
+      ],
+      "height_mean": 0.7801327705383301,
+      "height_mae": 0.002336344448849559,
+      "tilt_mean_deg": 3.8877480030059814,
+      "xy_speed_rms": 0.129533588886261,
+      "contact_duty": [
+        0.6044093178036606,
+        0.6282237936772047
+      ],
+      "stance_foot_speed": 0.015115768648684025,
+      "foot_height_p95": [
+        0.019221480004489422,
+        0.018155476078391075
+      ],
+      "arm_position_mae": 0.1459604948759079,
+      "survivor_xy_displacement_after6s": 0.6290810108184814
+    },
+    "yaw_right_arms": {
+      "name": "yaw_right_arms",
+      "command": [
+        0,
+        0,
+        -0.3
+      ],
+      "height": 0.78,
+      "arms": true,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 256,
+      "video_survived": true,
+      "mean_velocity": [
+        0.05482066050171852,
+        0.024653548374772072,
+        -0.1851963847875595
+      ],
+      "mae": [
+        0.05984890762271355,
+        0.08317084606997331,
+        0.1272907825267674
+      ],
+      "height_mean": 0.7798749208450317,
+      "height_mae": 0.002111914101988077,
+      "tilt_mean_deg": 3.7665047645568848,
+      "xy_speed_rms": 0.12146354466676712,
+      "contact_duty": [
+        0.6263519134775375,
+        0.5973377703826955
+      ],
+      "stance_foot_speed": 0.01641140691936016,
+      "foot_height_p95": [
+        0.01787075586616993,
+        0.019113590009510517
+      ],
+      "arm_position_mae": 0.13002078235149384,
+      "survivor_xy_displacement_after6s": 0.6280721426010132
+    },
+    "squat38_arms": {
+      "name": "squat38_arms",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.38,
+      "arms": true,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 272,
+      "video_survived": true,
+      "mean_velocity": [
+        -0.01272292248904705,
+        -0.000709965534042567,
+        -0.013222708366811275
+      ],
+      "mae": [
+        0.014506051634054587,
+        0.007662049596583846,
+        0.025486282084194005
+      ],
+      "height_mean": 0.38054540753364563,
+      "height_mae": 0.0047944169491529465,
+      "tilt_mean_deg": 21.0119686126709,
+      "xy_speed_rms": 0.023359239101409912,
+      "contact_duty": [
+        0.9996880199667221,
+        1.0
+      ],
+      "stance_foot_speed": 0.006485174410045147,
+      "foot_height_p95": [
+        -0.001990622840821743,
+        -0.001990359276533127
+      ],
+      "arm_position_mae": 0.1761007159948349,
+      "survivor_xy_displacement_after6s": 0.01092989556491375
+    },
+    "squat24_arms": {
+      "name": "squat24_arms",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.24,
+      "arms": true,
+      "survived": 16,
+      "total": 16,
+      "valid_samples": 9616,
+      "video_env_index": 288,
+      "video_survived": true,
+      "mean_velocity": [
+        -0.013985523954033852,
+        -0.0019728513434529305,
+        -0.012057253159582615
+      ],
+      "mae": [
+        0.015775627134609126,
+        0.00507616691154336,
+        0.025373665559560353
+      ],
+      "height_mean": 0.260409414768219,
+      "height_mae": 0.020409448072314262,
+      "tilt_mean_deg": 14.20969295501709,
+      "xy_speed_rms": 0.01997765339910984,
+      "contact_duty": [
+        1.0,
+        1.0
+      ],
+      "stance_foot_speed": 0.006142802536487579,
+      "foot_height_p95": [
+        -0.001991601660847664,
+        -0.0019877832382917404
+      ],
+      "arm_position_mae": 0.14419907331466675,
+      "survivor_xy_displacement_after6s": 0.0070499214343726635
+    }
+  },
+  "cases": [
+    {
+      "name": "stand",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "forward05",
+      "command": [
+        0.5,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "backward03",
+      "command": [
+        -0.3,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "left02",
+      "command": [
+        0,
+        0.2,
+        0
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "right02",
+      "command": [
+        0,
+        -0.2,
+        0
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "yaw_left03",
+      "command": [
+        0,
+        0,
+        0.3
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "yaw_right03",
+      "command": [
+        0,
+        0,
+        -0.3
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "curve_left",
+      "command": [
+        0.5,
+        0,
+        0.3
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "curve_right",
+      "command": [
+        0.5,
+        0,
+        -0.3
+      ],
+      "height": 0.78,
+      "arms": false
+    },
+    {
+      "name": "squat60",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.6,
+      "arms": false
+    },
+    {
+      "name": "squat38",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.38,
+      "arms": false
+    },
+    {
+      "name": "squat24",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.24,
+      "arms": false
+    },
+    {
+      "name": "walk_low60",
+      "command": [
+        0.5,
+        0,
+        0
+      ],
+      "height": 0.6,
+      "arms": false
+    },
+    {
+      "name": "stand_arms",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": true
+    },
+    {
+      "name": "forward_arms",
+      "command": [
+        0.5,
+        0,
+        0
+      ],
+      "height": 0.78,
+      "arms": true
+    },
+    {
+      "name": "yaw_left_arms",
+      "command": [
+        0,
+        0,
+        0.3
+      ],
+      "height": 0.78,
+      "arms": true
+    },
+    {
+      "name": "yaw_right_arms",
+      "command": [
+        0,
+        0,
+        -0.3
+      ],
+      "height": 0.78,
+      "arms": true
+    },
+    {
+      "name": "squat38_arms",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.38,
+      "arms": true
+    },
+    {
+      "name": "squat24_arms",
+      "command": [
+        0,
+        0,
+        0
+      ],
+      "height": 0.24,
+      "arms": true
+    }
+  ],
+  "checkpoint_updates": 22001
+}
