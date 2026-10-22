@@ -1,34 +1,24 @@
 # Installation and commands
 
-## Tested stack
+## Setup
 
-| Component | Version |
-|---|---|
-| OS / GPU | Ubuntu 24.04 / RTX 5080 16 GB |
-| Python | 3.11 |
-| Isaac Sim | 5.1.0.0 |
-| Isaac Lab | v2.3.2 (`37ddf626871758333d6ed89cf64ad702aef127d0`) |
-| PyTorch | 2.7.0+cu128 |
-| RSL-RL | 3.1.2 |
-| W&B | 0.24.2 |
-| Offline replay only | MuJoCo 3.5.0, imageio/FFmpeg, Pillow |
-
-Install Isaac Lab and Isaac Sim using the instructions in the [pinned Isaac Lab release](https://github.com/isaac-sim/IsaacLab/tree/v2.3.2). Isaac Sim is an external prerequisite, not bundled or installed automatically by this repository. Activate that environment before all simulator commands. Verify `nvidia-smi` and `torch.cuda.is_available()` first.
-
-This package preserves the Python import name `unitree_rl_lab` for upstream compatibility. Use a dedicated environment, or uninstall another editable `unitree_rl_lab` package before installing this one; do not unknowingly import a different checkout.
+First install **Isaac Sim 5.1.0 and Isaac Lab 2.3.2 with Python 3.11**, following the [Isaac Lab installation guide](https://isaac-sim.github.io/IsaacLab/v2.3.0/source/setup/installation/pip_installation.html) and selecting the [v2.3.2 release](https://github.com/isaac-sim/IsaacLab/tree/v2.3.2). Then clone this repository outside the Isaac Lab directory:
 
 ```bash
-python -m pip install -r requirements-runtime.txt
-python -m pip install -e .
-python scripts/setup/fetch_robot_assets.py
-python scripts/setup/fetch_robot_assets.py --verify-only
-python scripts/validation/check_release.py
-python scripts/list_envs.py
+git clone https://github.com/yezheng04/unitree-g1-23dof-decoupled-control.git
+cd unitree-g1-23dof-decoupled-control
 ```
 
-The downloader fetches 29 files (~25 MB) from the pinned official Unitree ROS commit, checks every SHA256, and writes to ignored `assets/g1/`. Sources, hashes and license are recorded in `robot_assets.json` and `licenses/unitree_ros.txt`. No symlink to a particular server is needed. USD conversion is cached under ignored `resources/usd_cache/`.
+Create the project environment from your configured Isaac Lab environment (replace `env_isaaclab` with its actual name):
 
-Optional path overrides: `G1_ASSET_DIR`, `G1_23DOF_URDF`, `G1_23DOF_MJCF`, `G1_USD_CACHE`; see `.env.example` (it is a template, not automatically loaded). Prefer editable installation. A non-editable wheel installation additionally requires `G1_PROJECT_ROOT` pointing at the repository/asset workspace. Custom URDF/MJCF pairs must preserve matching geometry and joint semantics; replay checks reject inconsistent FK.
+```bash
+conda create -n g1-23dof --clone env_isaaclab -y
+conda activate g1-23dof
+python -m pip install -r requirements-runtime.txt -e .
+python scripts/setup/download_assets.py
+```
+
+The clone includes all project source code. The download script fetches the robot assets and **checkpoint 22000** with its metadata. Full videos are optional: use `python scripts/setup/download_assets.py --videos` or download them from the [Release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000).
 
 ## Training and playback
 

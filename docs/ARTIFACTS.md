@@ -2,6 +2,18 @@
 
 The evaluated **checkpoint 22000** and all three full demonstration videos are published in the [GitHub Release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000). The training code is included in the repository and the release's Source code archives; start with [train_duet.py](../scripts/rsl_rl/train_duet.py) and the [training recipe](TRAINING_RECIPE.md).
 
+## Download script
+
+From the repository root, fetch robot assets and checkpoint 22000:
+
+```bash
+python scripts/setup/download_assets.py
+# Optional: also download the three full videos
+python scripts/setup/download_assets.py --videos
+```
+
+Files are checked against SHA256 hashes; existing matching files are reused.
+
 ## Downloads
 
 | File | Content |

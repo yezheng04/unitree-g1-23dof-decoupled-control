@@ -26,23 +26,37 @@ This is a **learning and engineering portfolio** focused on simulation adaptatio
 
 Observations: **71 actor / 96 critic**, single-frame, no HIM encoder. Actor and critic use MLPs `[512, 256, 128]` with ELU and observation normalization.
 
-## Reproduce
+## Installation
 
-Training code is included in this repository: [training entry point](scripts/rsl_rl/train_duet.py), [task and PPO implementation](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/duet_velocity/), and [robot and simulator support](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/common/).
-
-Use the tested **Python 3.11, Isaac Lab 2.3.2, Isaac Sim 5.1, RSL-RL 3.1.2** environment. Follow [installation](docs/INSTALL.md) before running:
+First install **Isaac Sim 5.1.0 and Isaac Lab 2.3.2 with Python 3.11**, following the [Isaac Lab installation guide](https://isaac-sim.github.io/IsaacLab/v2.3.0/source/setup/installation/pip_installation.html) and selecting the [v2.3.2 release](https://github.com/isaac-sim/IsaacLab/tree/v2.3.2). Then clone this repository outside the Isaac Lab directory:
 
 ```bash
-python scripts/setup/fetch_robot_assets.py
-python -m pip install -e .
-# Two PPO updates to check your installation; not a trained policy.
+git clone https://github.com/yezheng04/unitree-g1-23dof-decoupled-control.git
+cd unitree-g1-23dof-decoupled-control
+```
+
+Create the project environment from your configured Isaac Lab environment (replace `env_isaaclab` with its actual name):
+
+```bash
+conda create -n g1-23dof --clone env_isaaclab -y
+conda activate g1-23dof
+python -m pip install -r requirements-runtime.txt -e .
+python scripts/setup/download_assets.py
+```
+
+The clone includes all project source code. The download script fetches the robot assets and **checkpoint 22000** with its metadata. Full videos are optional: use `python scripts/setup/download_assets.py --videos` or download them from the [Release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000).
+
+## Training
+
+```bash
+# Quick installation check
 python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 --offline --run_name smoke
-# Full training recipe: 4096 environments, seed 1, 25001 updates, save every 500.
+# Full training
 wandb login
 python scripts/rsl_rl/train_duet.py --headless
 ```
 
-The training recipe uses PhysX and RSL-RL 3. See [Training recipe](docs/TRAINING_RECIPE.md) for the configuration and [Architecture](docs/ARCHITECTURE.md) for simulator and implementation differences.
+See the [training recipe](docs/TRAINING_RECIPE.md) for parameters and resume commands.
 
 ## Measured results
 

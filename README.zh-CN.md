@@ -16,21 +16,37 @@
 
 本仓库记录学习过程中的仿真适配、训练、评测和工程实现，具体实现与仿真差异见[架构说明](docs/ARCHITECTURE.md)。
 
-## 使用入口
+## 安装
 
-训练代码已包含在仓库中：[训练入口](scripts/rsl_rl/train_duet.py)、[任务环境与 PPO 实现](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/duet_velocity/)、[机器人与仿真适配](source/unitree_rl_lab/unitree_rl_lab/tasks/locomotion/robots/g1/common/)。
-
-先按[安装说明](docs/INSTALL.md)配置IsaacLab 2.3.2 / IsaacSim 5.1 / Python 3.11环境，然后：
+克隆前，请先按 [Isaac Lab 官方安装指南](https://isaac-sim.github.io/IsaacLab/v2.3.0/source/setup/installation/pip_installation.html) 配置 **Isaac Sim 5.1.0、Isaac Lab 2.3.2 和 Python 3.11**，Isaac Lab 选择 [v2.3.2](https://github.com/isaac-sim/IsaacLab/tree/v2.3.2)。然后在 Isaac Lab 目录之外克隆本仓库：
 
 ```bash
-python scripts/setup/fetch_robot_assets.py
-python -m pip install -e .
-python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 --offline --run_name smoke
+git clone https://github.com/yezheng04/unitree-g1-23dof-decoupled-control.git
+cd unitree-g1-23dof-decoupled-control
 ```
 
-正式训练：`python scripts/rsl_rl/train_duet.py --headless`。默认4096环境、seed 1、25001轮，每500轮保存，W&B在线记录；首次使用前运行`wandb login`。不上传密钥，离线可加`--offline`。
+从已配置好的 Isaac Lab 环境创建项目环境，将 `env_isaaclab` 替换成你的实际环境名：
 
-[训练配方与22项奖励](docs/TRAINING_RECIPE.md) · [代码知识图谱与迁移差异](docs/ARCHITECTURE.md) · [完整评估](docs/RESULTS.md) · [视频和模型附件](docs/ARTIFACTS.md)
+```bash
+conda create -n g1-23dof --clone env_isaaclab -y
+conda activate g1-23dof
+python -m pip install -r requirements-runtime.txt -e .
+python scripts/setup/download_assets.py
+```
+
+克隆包含全部项目源码；下载脚本补齐机器人资源、**22000 checkpoint** 及配套元数据。完整视频可额外运行 `python scripts/setup/download_assets.py --videos` 下载，也可从 [Release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000) 单独下载。
+
+## 训练
+
+```bash
+# 快速检查安装
+python scripts/rsl_rl/train_duet.py --headless --num_envs 64 --max_iterations 2 --offline --run_name smoke
+# 正式训练
+wandb login
+python scripts/rsl_rl/train_duet.py --headless
+```
+
+训练参数和恢复训练命令见[训练配方](docs/TRAINING_RECIPE.md)。
 
 ## Deploy / 部署
 

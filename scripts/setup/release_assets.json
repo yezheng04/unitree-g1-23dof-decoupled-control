@@ -1,0 +1,30 @@
+{
+  "release_url": "https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/download/v0.1.0-22000",
+  "files": [
+    {
+      "path": "checkpoints/model_22000.contract.json",
+      "sha256": "c5b5fb058ec9f4a6ce5c56cf445f7eb17d2e31f3ae96159d1da494f7fae2cd03",
+      "bytes": 5496
+    },
+    {
+      "path": "checkpoints/model_22000.pt",
+      "sha256": "715412d1a71e2def33814e95d4900683b3780bf2e57bddfd2099b6cb35b22f93",
+      "bytes": 5027015
+    },
+    {
+      "path": "videos/duet_22000_arms.mp4",
+      "sha256": "5824fcf73ee6e6388e8f6c5c5e801e8d9d72289ed2e804e1cf72bd9f06e879c6",
+      "bytes": 8322042
+    },
+    {
+      "path": "videos/duet_22000_height.mp4",
+      "sha256": "043b9366ef3bc0bd86a0b157a3a6143d7247c95f32f42b0b9cbbe0700f824c43",
+      "bytes": 5707669
+    },
+    {
+      "path": "videos/duet_22000_locomotion.mp4",
+      "sha256": "ab0f0b60fbaf1eefe068f7ca39e9b1217646ba39f6ce2633462d03c9141b85b6",
+      "bytes": 22522866
+    }
+  ]
+}

@@ -10,25 +10,15 @@
 
 ## 1. 环境和模型导出
 
-部署不需要启动 Isaac Sim。以下命令从仓库根目录执行，使用 Python 3.11：
+先完成[项目安装](INSTALL.md)，再从仓库根目录执行。部署不需要启动 Isaac Sim。
 
 ```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-# x86_64 CPU 部署环境；使用 CUDA 或其他架构时先安装对应 PyTorch wheel。
-python -m pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
+conda activate g1-23dof
 python -m pip install -r requirements-deploy.txt
-python scripts/setup/fetch_robot_assets.py
+python -m deploy.export_policy --checkpoint artifacts/checkpoints/model_22000.pt --output artifacts/deploy/22000
 ```
 
-从 [22000 Release](https://github.com/yezheng04/unitree-g1-23dof-decoupled-control/releases/tag/v0.1.0-22000) 下载完整附件包，在仓库根目录解压；也可按[附件说明](ARTIFACTS.md)放置模型与配套 contract。
-
-```bash
-tar -xzf g1-23dof-checkpoint-22000.tar.gz
-python -m deploy.export_policy \
-  --checkpoint artifacts/checkpoints/model_22000.pt \
-  --output artifacts/deploy/22000
-```
+仅部署时也可单独创建 Python 3.11 环境（`conda create -n g1-deploy python=3.11 -y`），激活后安装 `requirements-deploy.txt` 并运行 `python scripts/setup/download_assets.py`，再导出策略。
 
 生成 `policy.pt`（TorchScript 推理文件）和 `deploy.json`（参数与 SHA256）。原来的 `model_22000.pt` 仍是训练 checkpoint，可以恢复训练；部署文件只包含推理所需内容。导出采用 `weights_only=True` 读取当前 checkpoint，并校验机器人模型和配套元数据。
 
