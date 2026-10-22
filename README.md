@@ -57,8 +57,6 @@ The full run completed **25001 PPO updates** on one RTX 5080. The published quan
 | Squat height | 0.38 m | 0.382 m |
 | Deep squat height | 0.24 m | 0.270 m |
 
-All **304 / 304** evaluated episodes survived the 18-second test. These tests retain friction and payload variation but disable pushes, observation noise, COM shifts and encoder bias. Turning includes approximately 0.92–0.96 m net translation over the 12-second measurement window; lateral commands induce forward drift. Survival alone is not tracking success. See [full protocol and limitations](docs/RESULTS.md).
-
 ## Code map
 
 ```text
